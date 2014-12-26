@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cool Blog</title>
+  <script src="my_blog.js"></script>
+
+</head>
+<body>
+  <div>
+    <h1>New Post</h1>
+  </div>
+  
+  <form onsubmit="return false">
+    
+    <div>
+      <h2>Title:</h2>
+      <h3>(Please use only letters. Text must be under 50 characters)</h3>
+      <input type="text" name="title" id="inputTitle" placeholder="Write your title here">
+    </div>
+
+    <div>
+      <h2>Content:</h2>
+      <textarea rows="4" cols="50" id="inputContent" placeholder="Write something"></textarea>
+    </div>
+
+    <div>
+      <br>
+      <input type="submit" onClick="JavaScript:submitNewPost()" value="Submit">
+    </div>
+  </form>
+
+  <div>
+    <p id="latestPost"></p>
+
+  </div>
+
+</body>
+</html>
