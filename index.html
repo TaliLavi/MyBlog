@@ -24,13 +24,25 @@
     </div>
 
     <div>
+      <h2>Tag your post:</h2>
+      <input type="checkbox" name="tag" value="Cats" id="tag0"> Cats<br>
+      <input type="checkbox" name="tag" value="Bats" id="tag1"> Bats<br>
+      <input type="checkbox" name="tag" value="Wizards" id="tag2"> Wizards<br>
+      <input type="checkbox" name="tag" value="Witches" id="tag3"> Witches<br>
+      <input type="checkbox" name="tag" value="Evil Pumpkins" id="tag4"> Evil Pumpkins
+    </div>
+
+
+    <div>
       <br>
       <input type="submit" onClick="JavaScript:submitNewPost()" value="Submit">
     </div>
   </form>
 
   <div>
-    <p id="latestPost"></p>
+    <div id="title"></div>
+    <div id="content"></div>
+    <ul id="tags"></ul>
 
   </div>
 
