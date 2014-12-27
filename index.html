@@ -5,7 +5,7 @@
   <script src="my_blog.js"></script>
 
 </head>
-<body>
+<body onload="populateTagCheckboxes()">
   <div>
     <h1>New Post</h1>
   </div>
@@ -25,11 +25,7 @@
 
     <div>
       <h2>Tag your post:</h2>
-      <input type="checkbox" name="tag" value="Cats" id="tag0"> Cats<br>
-      <input type="checkbox" name="tag" value="Bats" id="tag1"> Bats<br>
-      <input type="checkbox" name="tag" value="Wizards" id="tag2"> Wizards<br>
-      <input type="checkbox" name="tag" value="Witches" id="tag3"> Witches<br>
-      <input type="checkbox" name="tag" value="Evil Pumpkins" id="tag4"> Evil Pumpkins
+      <ul id="inputTags"></ul>
     </div>
 
 
