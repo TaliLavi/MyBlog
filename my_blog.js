@@ -1,7 +1,4 @@
-//list of tags to be used to categorise posts
-TAGS = ["Cats","Bats","Wizards","Witches","Evil Pumpkins"];
-
-
+//This script relies on the data found in data.js
 
 //create checkboxes dynamically based on TAGS
 function populateTagCheckboxes(){
@@ -38,10 +35,14 @@ function formatTags(){
 
 //submit and display new post
 function submitNewPost() {
+	document.getElementById("author").innerHTML = document.getElementById("inputAuthor").value;
     document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
     document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
     document.getElementById("tags").innerHTML = formatTags();
 }
 
-
+//show the value of the slider as someone slides it
+function showSmiley(newValue){
+	document.getElementById("range").innerHTML=newValue;
+}
 
