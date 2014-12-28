@@ -1,0 +1,54 @@
+.smiley1 {
+  display: block;
+  width: 37px;
+  height: 44px;
+  background: url("emoticons.png") no-repeat -2px 0;
+/*  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;*/
+  float: left;  
+}
+
+.smiley2 {
+  display: block;
+  width: 37px;
+  height: 44px;
+  background: url("emoticons.png") no-repeat -42px 0;
+/*  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;*/
+  float: left;  
+}
+
+.smiley3 {
+  display: block;
+  width: 37px;
+  height: 44px;
+  background: url("emoticons.png") no-repeat -82px 0;
+/*  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;*/
+  float: left;  
+}
+
+.smiley4 {
+  display: block;
+  width: 37px;
+  height: 44px;
+  background: url("emoticons.png") no-repeat -122px 0;
+/*  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;*/
+  float: left;  
+}
+
+.smiley5 {
+  display: block;
+  width: 37px;
+  height: 44px;
+  background: url("emoticons.png") no-repeat -162px 0;
+/*  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;*/
+  float: left;  
+}
