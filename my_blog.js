@@ -41,8 +41,8 @@ function submitNewPost() {
     document.getElementById("tags").innerHTML = formatTags();
 }
 
-//show the value of the slider as someone slides it
+//change smileys according to the value of the slider
 function showSmiley(newValue){
-	document.getElementById("range").innerHTML=newValue;
+	document.getElementById("mood").className="smiley"+newValue;
 }
 
