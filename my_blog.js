@@ -1,5 +1,18 @@
 //This script relies on the data found in data.js
 
+//hide or reveal divs' content according to which button is pressed
+function toggleVisibility(buttonId){
+	console.log(buttonId);
+	if(buttonId == "viewPostsButton"){
+		document.getElementById('viewPosts').classList.remove('hide');
+		document.getElementById('submitNewPost').classList.add('hide');
+	} else if(buttonId == "submitNewPostButton"){
+		document.getElementById('submitNewPost').classList.remove('hide');
+		document.getElementById('viewPosts').classList.add('hide');
+	}
+}
+
+
 //create checkboxes dynamically based on TAGS
 function populateTagCheckboxes(){
 	var tagsHTML = "";

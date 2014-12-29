@@ -7,52 +7,49 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body onload="populateTagCheckboxes()">
-  <div>
+
+  <button type="button" id="viewPostsButton" onclick="JavaScript:toggleVisibility(this.id)">View Posts</button>
+  <button type="button" id="submitNewPostButton" onclick="JavaScript:toggleVisibility(this.id)">Submit a New Post</button>
+
+  <div id="submitNewPost">
     <h1>New Post</h1>
-  </div>
-  
-  <form onsubmit="return false">
     
-    <div>
+    <form onsubmit="return false">
+      
       <h2>Author:</h2>
       <input type="text" name="author" id="inputAuthor" placeholder="What's you name?">
-    </div>
 
-    <div>
+
       <h2>Title:</h2>
       <h3>(Please use only letters. Text must be up to 50 characters)</h3>
       <input type="text" name="title" id="inputTitle" placeholder="What do you want to talk about?" size="35">
-    </div>
 
-    <div>
+
       <h2>Content:</h2>
       <textarea rows="4" cols="50" id="inputContent" placeholder="What's on your mind?"></textarea>
-    </div>
 
-    <div>
+
       <h3>What's your mood?</h3>
-      <input type="range" min="1" max="5" value="3" onchange="showSmiley(this.value)" />
+      <input type="range" min="1" max="5" value="3" oninput="showSmiley(this.value)" />
       <span><a id="mood" class="smiley3" href="emoticons.png"></a></span>
-    </div>
 
-    <div>
+
       <h2>Tag your post:</h2>
       <ul id="inputTags"></ul>
-    </div>
 
 
-    <div>
       <br>
       <input type="submit" onClick="JavaScript:submitNewPost()" value="Submit New Post">
-    </div>
-  </form>
-
-  <div>
+    
+    </form>
+  </div>
+  
+  <div id="viewPosts">
+    <p>Just cheking</p>
     <div id="author"></div>
     <div id="title"></div>
     <div id="content"></div>
     <ul id="tags"></ul>
-
   </div>
 
 </body>
