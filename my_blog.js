@@ -2,7 +2,6 @@
 
 //hide or reveal divs' content according to which button is pressed
 function toggleVisibility(buttonId){
-	console.log(buttonId);
 	if(buttonId == "viewPostsButton"){
 		document.getElementById('viewPosts').classList.remove('hide');
 		document.getElementById('submitNewPost').classList.add('hide');
@@ -11,7 +10,6 @@ function toggleVisibility(buttonId){
 		document.getElementById('viewPosts').classList.add('hide');
 	}
 }
-
 
 //create checkboxes dynamically based on TAGS
 function populateTagCheckboxes(){
@@ -46,16 +44,18 @@ function formatTags(){
     return tagsHTML
 }
 
-//submit and display new post
-function submitNewPost() {
-	document.getElementById("author").innerHTML = document.getElementById("inputAuthor").value;
-    document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
-    document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
-    document.getElementById("tags").innerHTML = formatTags();
-}
 
 //change smileys according to the value of the slider
 function showSmiley(newValue){
 	document.getElementById("mood").className="smiley"+newValue;
 }
 
+
+//submit and display new post
+function submitNewPost() {
+	document.getElementById("author").innerHTML = document.getElementById("inputAuthor").value;
+    document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
+    document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
+    document.getElementById("tags").innerHTML = formatTags();
+    document.getElementById("selectedMood").className = document.getElementById("mood").className    
+}
