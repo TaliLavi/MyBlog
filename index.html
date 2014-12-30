@@ -10,12 +10,21 @@
 
   <button type="button" id="viewPostsButton" onclick="JavaScript:toggleVisibility(this.id)">View Posts</button>
   <button type="button" id="submitNewPostButton" onclick="JavaScript:toggleVisibility(this.id)">Submit a New Post</button>
-
+  
   <div id="submitNewPost">
     <h1>New Post</h1>
-    
+        
     <form onsubmit="return false">
       
+      <h3>How important is your post?</h3>
+      <select id="dropDown">
+        <option value="default"></option>
+        <option value="Not important">Not important, I'm just bored</option>
+        <option value="Kinda important">Kinda important</option>
+        <option value="Super important">Alert the president</option>
+      </select>
+
+
       <h2>Author:</h2>
       <input type="text" name="author" id="inputAuthor" placeholder="What's you name?">
 
@@ -31,7 +40,7 @@
 
       <h3>What's your mood?</h3>
       <input type="range" min="1" max="5" value="3" oninput="showSmiley(this.value)" />
-      <span><a id="mood" class="smiley3" href="emoticons.png"></a></span>
+      <span id="mood" class="smiley3"></span>
 
 
       <h2>Tag your post:</h2>
@@ -45,7 +54,8 @@
   </div>
   
   <div class="hide" id="viewPosts">
-    <p>Just cheking</p>
+    <p>Just checking</p>
+    <div id="importance"></div>
     <div id="author"></div>
     <div id="title"></div>
     <div id="content"></div>

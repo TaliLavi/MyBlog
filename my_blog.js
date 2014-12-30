@@ -11,6 +11,7 @@ function toggleVisibility(buttonId){
 	}
 }
 
+
 //create checkboxes dynamically based on TAGS
 function populateTagCheckboxes(){
 	var tagsHTML = "";
@@ -57,5 +58,7 @@ function submitNewPost() {
     document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
     document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
     document.getElementById("tags").innerHTML = formatTags();
-    document.getElementById("selectedMood").className = document.getElementById("mood").className    
+    document.getElementById("selectedMood").className = document.getElementById("mood").className;
+     document.getElementById("importance").innerHTML= document.getElementById("dropDown").value
+    toggleVisibility("viewPostsButton");
 }
