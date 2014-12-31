@@ -8,21 +8,13 @@
 </head>
 <body onload="populateTagCheckboxes()">
 
-  <button type="button" id="viewPostsButton" onclick="JavaScript:toggleVisibility(this.id)">View Posts</button>
-  <button type="button" id="submitNewPostButton" onclick="JavaScript:toggleVisibility(this.id)">Submit a New Post</button>
+  <button type="button" id="viewPostsButton" onclick="toggleVisibility(this.id)">View Posts</button>
+  <button type="button" id="submitNewPostButton" onclick="toggleVisibility(this.id)">Submit a New Post</button>
   
   <div id="submitNewPost">
     <h1>New Post</h1>
         
     <form onsubmit="return false">
-      
-      <h3>How important is your post?</h3>
-      <select id="dropDown">
-        <option value="default"></option>
-        <option value="Not important">Not important, I'm just bored</option>
-        <option value="Kinda important">Kinda important</option>
-        <option value="Super important">Alert the president</option>
-      </select>
 
 
       <h2>External link:</h2>
@@ -30,7 +22,13 @@
 
 
       <h2>Author:</h2>
-      <input type="text" name="author" id="inputAuthor" placeholder="What's you name?">
+      <select id="inputAuthor" onchange="authorDetails(this.value)">
+        <option value="default"></option>
+        <option value="Tali">Tali</option>
+        <option value="Yoni">Yoni</option>
+      </select>
+      <div id="age"></div>
+      <div id="badassness"></div>
 
 
       <h2>Title:</h2>
@@ -55,7 +53,7 @@
 
 
       <br>
-      <input type="submit" onClick="JavaScript:submitNewPost()" value="Submit New Post">
+      <input type="submit" onClick="submitNewPost()" value="Submit New Post">
     
     </form>
   </div>

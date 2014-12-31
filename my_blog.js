@@ -12,6 +12,16 @@ function toggleVisibility(buttonId){
 }
 
 
+//present author details acording to the author selected from the dropdown
+function authorDetails(name){
+	var author = AUTHORS[name];
+	var age = author['age'];
+	var badassness = author['badassness'];
+	document.getElementById('age').innerHTML = age;
+	document.getElementById('badassness').innerHTML = badassness;
+}
+
+
 //create checkboxes dynamically based on TAGS
 function populateTagCheckboxes(){
 	var tagsHTML = "";
@@ -94,7 +104,6 @@ function submitNewPost(){
 	    document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
 	    document.getElementById("tags").innerHTML = formatTags();
 	    document.getElementById("selectedMood").className = document.getElementById("mood").className;
-	    document.getElementById("importance").innerHTML= document.getElementById("dropDown").value
 	    toggleVisibility("viewPostsButton");
 	}
 	
