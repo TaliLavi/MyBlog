@@ -71,6 +71,11 @@ function validateNewPost(){
 	if(link !== "" && !linkRegex.test(link)){
 		errorText += "Check your link.<br>";
 	}
+	//validate author: user must select an author from the dropdown menu.
+	var author = document.getElementById("inputAuthor").value;
+	if(author == "default"){
+		errorText += "Please select an author.<br>";
+	}
 	//validate title: title can contain only letters and be up to 50 characters max.
 	var titleRegex = /^[a-zA-Z]{1,50}$/;
 	var title = document.getElementById("inputTitle").value;
