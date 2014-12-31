@@ -25,6 +25,10 @@
       </select>
 
 
+      <h2>External link:</h2>
+      <input type="text" name="link" id="inputLink" placeholder="Add a URL" size="35">
+
+
       <h2>Author:</h2>
       <input type="text" name="author" id="inputAuthor" placeholder="What's you name?">
 
@@ -47,6 +51,9 @@
       <ul id="inputTags"></ul>
 
 
+      <div id="errorText"></div>
+
+
       <br>
       <input type="submit" onClick="JavaScript:submitNewPost()" value="Submit New Post">
     
@@ -56,6 +63,7 @@
   <div class="hide" id="viewPosts">
     <p>Just checking</p>
     <div id="importance"></div>
+    <div id="link"></div>
     <div id="author"></div>
     <div id="title"></div>
     <div id="content"></div>

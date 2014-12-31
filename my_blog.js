@@ -52,13 +52,50 @@ function showSmiley(newValue){
 }
 
 
+//validate various elements on submition
+function validateNewPost(){
+	var errorText = "";
+	//validate link: user doesn't have to add a link, but if they do - the link has to be valid.
+	var linkRegex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/;
+	var link = document.getElementById("inputLink").value;
+	if(link !== "" && !linkRegex.test(link)){
+		errorText += "Check your link.<br>";
+	}
+	//validate title: title can contain only letters and be up to 50 characters max.
+	var titleRegex = /^[a-zA-Z]{1,50}$/;
+	var title = document.getElementById("inputTitle").value;
+	if(!titleRegex.test(title)){
+		errorText += "Your title should contain only letters and be up to 50 characters.<br>";
+	}
+	//validate content: content can be anything, just not empty.
+	var contentRegex = /.+/;
+	var content = document.getElementById("inputContent").value;
+	if(!contentRegex.test(content)){
+		errorText += "You have to write some content.<br>";
+	}
+	//validate tags
+	if(formatTags() == ""){
+		errorText += "Select at least one tag.<br>";
+	}
+	return errorText
+}
+
+
 //submit and display new post
-function submitNewPost() {
-	document.getElementById("author").innerHTML = document.getElementById("inputAuthor").value;
-    document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
-    document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
-    document.getElementById("tags").innerHTML = formatTags();
-    document.getElementById("selectedMood").className = document.getElementById("mood").className;
-     document.getElementById("importance").innerHTML= document.getElementById("dropDown").value
-    toggleVisibility("viewPostsButton");
+function submitNewPost(){
+	var errorText = validateNewPost();
+	if(errorText !== "") {
+		document.getElementById("errorText").innerHTML = errorText;
+	}
+	else {
+		document.getElementById("link").innerHTML = document.getElementById("inputLink").value;
+		document.getElementById("author").innerHTML = document.getElementById("inputAuthor").value;
+	    document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
+	    document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
+	    document.getElementById("tags").innerHTML = formatTags();
+	    document.getElementById("selectedMood").className = document.getElementById("mood").className;
+	    document.getElementById("importance").innerHTML= document.getElementById("dropDown").value
+	    toggleVisibility("viewPostsButton");
+	}
+	
 }
