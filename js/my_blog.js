@@ -73,7 +73,7 @@ function showSmiley(newValue){
 function validateNewPost(){
 	var errorText = "";
 	//validate link: user doesn't have to add a link, but if they do - the link has to be valid.
-	var linkRegex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/;
+	var linkRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 	var link = document.getElementById("inputLink").value;
 	if(link !== "" && !linkRegex.test(link)){
 		errorText += "Check your link.<br>";
@@ -103,26 +103,39 @@ function validateNewPost(){
 }
 
 
-//submit and display new post, unless there are errors
+//display the new post's values
+function fillNewPost() {
+	document.getElementById("link").innerHTML = "<u>External link</u>: " + document.getElementById("inputLink").value;
+	document.getElementById("author").innerHTML = "<u>Author</u>: " + document.getElementById("inputAuthor").value;
+    document.getElementById("title").innerHTML = "<u>Title</u>: " + document.getElementById("inputTitle").value;
+    document.getElementById("content").innerHTML = "<u>Content</u>: " + document.getElementById("inputContent").value;
+    document.getElementById("tags").innerHTML = "<u>Tags</u>: " + formatTags();
+    document.getElementById("selectedMood").className = document.getElementById("mood").className;
+}
+
+//clear the form
+function clearForm() {
+    document.getElementById("inputLink").value = "";
+    document.getElementById("inputAuthor").selectedIndex = 0;
+	document.getElementById('age').innerHTML = "";
+	document.getElementById('badassness').innerHTML = "";
+	document.getElementById('Line placeholder').innerHTML = "";
+    document.getElementById("inputTitle").value = "";
+    document.getElementById("inputContent").value = "";
+    document.getElementById("mood").className = "smiley3";
+    document.getElementById("moodSlider").value = 3;
+    populateTagCheckboxes()
+}
+
+//submit and display new post (and clear the form), unless there are errors
 function submitNewPost(){
 	var errorText = validateNewPost();
 	if(errorText !== "") {
 		document.getElementById("errorText").innerHTML = errorText;
 	}
 	else {
-		//display the new post's values
-		document.getElementById("link").innerHTML = "<u>External link</u>: " + document.getElementById("inputLink").value;
-		document.getElementById("author").innerHTML = "<u>Author</u>: " + document.getElementById("inputAuthor").value;
-	    document.getElementById("title").innerHTML = "<u>Title</u>: " + document.getElementById("inputTitle").value;
-	    document.getElementById("content").innerHTML = "<u>Content</u>: " + document.getElementById("inputContent").value;
-	    document.getElementById("tags").innerHTML = "<u>Tags</u>: " + formatTags();
-	    document.getElementById("selectedMood").className = document.getElementById("mood").className;
+		fillNewPost()
 	    toggleVisibility("viewPostsButton");
-	    //clear the form: at the moment I'm unseccessful with this. Author's details remail, and I also didn't reset the checkboxes and slider. Deal with it only if I get the time.
-	    // document.getElementById("inputLink").value = "";
-	    // document.getElementById("inputAuthor").value = "default";
-	    // document.getElementById("inputTitle").value = "";
-	    // document.getElementById("inputContent").value = "";
+ 		clearForm()
 	}
-	
 }

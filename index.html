@@ -20,7 +20,7 @@
 
       <label>
         <span>External link:</span>
-        <input type="text" name="link" id="inputLink" placeholder="Add a URL" size="35">
+        <input type="text" name="link" id="inputLink" placeholder="Add a URL">
       </label>
 
       <label>
@@ -37,7 +37,7 @@
 
       <label>
         <span>Title:</span>
-        <input type="text" name="title" id="inputTitle" placeholder="What do you want to talk about?" size="35">
+        <input type="text" name="title" id="inputTitle" placeholder="What do you want to talk about?">
       </label>
 
       <label>
@@ -48,7 +48,7 @@
       <label>
         <span>What's your mood?</span>
         <div id="mood" class="smiley3"></div>
-        <div><input type="range" min="1" max="5" value="3" oninput="showSmiley(this.value)" /></div>
+        <div><input type="range" min="1" max="5" value="3" id="moodSlider" oninput="showSmiley(this.value)" /></div>
       </label>
 
       <label id="inputTags">
