@@ -26,9 +26,9 @@ function authorDetails(name){
 function populateTagCheckboxes(){
 	var tagsHTML = "";
 	for (var i=0; i<TAGS.length; i++){
-		tagsHTML += "<li><input type=\"checkbox\" name=\"tag\" value=\""+TAGS[i]+"\" id=\"tag"+i+"\"> "+TAGS[i]+"</li>"
+		tagsHTML += "<li><label><input type=\"checkbox\" name=\"tag\" id=\"tag"+i+"\"> "+TAGS[i]+"</label></li>"
 	}
-	document.getElementById("inputTags").innerHTML = tagsHTML
+	document.getElementById("inputTagsList").innerHTML = tagsHTML
 }
 
 
@@ -38,7 +38,7 @@ function getCheckedTags(){
 	for (var i=0; i<TAGS.length; i++){
 		var element = document.getElementById("tag" + i);
 		if (element.checked){
-			checkedTags[checkedTags.length] = element.value;
+			checkedTags[checkedTags.length] = TAGS[i];
 		}
 	}
 	return checkedTags;
@@ -52,7 +52,7 @@ function formatTags(){
     for (var i=0; i<checkedTags.length; i++){
     	tagsHTML += "<li>"+checkedTags[i]+"</li>";
     }
-    return tagsHTML
+    return tagsHTML;
 }
 
 

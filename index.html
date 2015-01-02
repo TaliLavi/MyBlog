@@ -8,66 +8,81 @@
 </head>
 <body onload="populateTagCheckboxes()">
 
-  <button type="button" id="viewPostsButton" onclick="toggleVisibility(this.id)">View Posts</button>
+  <button type="button" id="viewPostsButton" onclick="toggleVisibility(this.id)">View Old Posts</button>
   <button type="button" id="submitNewPostButton" onclick="toggleVisibility(this.id)">Submit a New Post</button>
   
-  <div id="submitNewPost">
-    <h1>New Post</h1>
-        
-    <form onsubmit="return false">
+  <form onsubmit="return false" class="basic-grey">
+
+    <div id="submitNewPost">
+      <h1>New Post
+      <span>Please fill all the texts in the fields.</span>
+      </h1>
+
+      <label>
+        <span>External link:</span>
+        <input type="text" name="link" id="inputLink" placeholder="Add a URL" size="35">
+      </label>
 
 
-      <h2>External link:</h2>
-      <input type="text" name="link" id="inputLink" placeholder="Add a URL" size="35">
-
-
-      <h2>Author:</h2>
-      <select id="inputAuthor" onchange="authorDetails(this.value)">
-        <option value="default"></option>
-        <option value="Tali">Tali</option>
-        <option value="Yoni">Yoni</option>
-      </select>
+      <label>
+        <span>Author:</span>
+        <select id="inputAuthor" onchange="authorDetails(this.value)">
+          <option value="default"></option>
+          <option value="Tali">Tali</option>
+          <option value="Yoni">Yoni</option>
+        </select>
+      </label>
       <div id="age"></div>
       <div id="badassness"></div>
 
 
-      <h2>Title:</h2>
-      <h3>(Please use only letters. Text must be up to 50 characters)</h3>
-      <input type="text" name="title" id="inputTitle" placeholder="What do you want to talk about?" size="35">
+      <label>
+        <span>Title:</span>
+        <input type="text" name="title" id="inputTitle" placeholder="What do you want to talk about?" size="35">
+        <!-- <div>(Please use only letters. Text must be up to 50 characters)</div> -->
+      </label>
 
 
-      <h2>Content:</h2>
-      <textarea rows="4" cols="50" id="inputContent" placeholder="What's on your mind?"></textarea>
+      <label>
+        <span>Content:</span>
+        <textarea rows="4" cols="50" id="inputContent" placeholder="What's on your mind?"></textarea>
+      </label>
+
+      <label>
+        <span>What's your mood?</span>
+        <div id="mood" class="smiley3"></div>
+        <div><input type="range" min="1" max="5" value="3" oninput="showSmiley(this.value)" /></div>
+      </label>
 
 
-      <h3>What's your mood?</h3>
-      <input type="range" min="1" max="5" value="3" oninput="showSmiley(this.value)" />
-      <span id="mood" class="smiley3"></span>
-
-
-      <h2>Tag your post:</h2>
-      <ul id="inputTags"></ul>
+      <label id="inputTags">
+        <span>Tag your post:</span>
+        <ul id="inputTagsList"></ul>
+      </label>
 
 
       <div id="errorText"></div>
 
 
       <br>
-      <input type="submit" onClick="submitNewPost()" value="Submit New Post">
+      <input type="submit" onClick="submitNewPost()" value="Submit">
     
-    </form>
-  </div>
+    </div>
+    <div class="hide" id="viewPosts">
+      <h1>View Posts
+      <span>Here is your recent post.</span>
+      </h1>
+      <p>Just checking</p>
+      <div id="importance"></div>
+      <div id="link"></div>
+      <div id="author"></div>
+      <div id="title"></div>
+      <div id="content"></div>
+      <ul id="tags"></ul>
+      <div id="selectedMood"></div>
+    </div>
+  </form>
   
-  <div class="hide" id="viewPosts">
-    <p>Just checking</p>
-    <div id="importance"></div>
-    <div id="link"></div>
-    <div id="author"></div>
-    <div id="title"></div>
-    <div id="content"></div>
-    <ul id="tags"></ul>
-    <span><a id="selectedMood" class="" href="emoticons.png"></a></span>
-  </div>
 
 </body>
 </html>
