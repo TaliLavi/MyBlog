@@ -8,8 +8,8 @@
 </head>
 <body onload="populateTagCheckboxes()">
   <div id="tabs">
-    <button type="button" id="newPostButton" class="tab" onclick="toggleVisibility(this.id)">New Post</button>
-    <button type="button" id="viewPostsButton" class="tab" onclick="toggleVisibility(this.id)">View Last Post</button>
+    <input type="button" value="New Post" id="newPostButton" class="tab" onclick="toggleVisibility(this.id)">
+    <input type="button" value="View Last Post" id="viewPostsButton" class="tab" onclick="toggleVisibility(this.id)">
   </div>
   
   <form onsubmit="return false" class="basic-grey">
@@ -32,6 +32,7 @@
         </select>
         <div id="age"></div>
         <div id="badassness"></div>
+        <div id="Line placeholder"></div>
       </label>
 
       <label>

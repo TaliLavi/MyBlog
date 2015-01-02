@@ -17,9 +17,11 @@ function authorDetails(name){
 	var author = AUTHORS[name];
 	var age = author['age'];
 	var badassness = author['badassness'];
+	var placeholder = author['placeholder'];
 	document.getElementById('age').innerHTML = "Age: " + age;
-	document.getElementById('badassness').innerHTML = "Badassness: " + badassness;
-}
+	document.getElementById('badassness').innerHTML = "badassness: " + badassness;
+	document.getElementById('Line placeholder').innerHTML = "Line placeholder: " + placeholder;
+	}
 
 //wrap elements of an array in list items and return concatenated HTML
 function makeHtmlListItems(array) {
@@ -101,13 +103,14 @@ function validateNewPost(){
 }
 
 
-//submit and display new post
+//submit and display new post, unless there are errors
 function submitNewPost(){
 	var errorText = validateNewPost();
 	if(errorText !== "") {
 		document.getElementById("errorText").innerHTML = errorText;
 	}
 	else {
+		//display the new post's values
 		document.getElementById("link").innerHTML = "<u>External link</u>: " + document.getElementById("inputLink").value;
 		document.getElementById("author").innerHTML = "<u>Author</u>: " + document.getElementById("inputAuthor").value;
 	    document.getElementById("title").innerHTML = "<u>Title</u>: " + document.getElementById("inputTitle").value;
@@ -115,6 +118,11 @@ function submitNewPost(){
 	    document.getElementById("tags").innerHTML = "<u>Tags</u>: " + formatTags();
 	    document.getElementById("selectedMood").className = document.getElementById("mood").className;
 	    toggleVisibility("viewPostsButton");
+	    //clear the form: at the moment I'm unseccessful with this. Author's details remail, and I also didn't reset the checkboxes and slider. Deal with it only if I get the time.
+	    // document.getElementById("inputLink").value = "";
+	    // document.getElementById("inputAuthor").value = "default";
+	    // document.getElementById("inputTitle").value = "";
+	    // document.getElementById("inputContent").value = "";
 	}
 	
 }
