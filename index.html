@@ -2,21 +2,20 @@
 <html>
 <head>
   <title>Cool Blog</title>
-  <script src="data.js"></script>
-  <script src="my_blog.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="js/data.js"></script>
+  <script src="js/my_blog.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body onload="populateTagCheckboxes()">
   <div id="tabs">
-    <button type="button" id="viewPostsButton" class="tab" onclick="toggleVisibility(this.id)">View Old Posts</button>
-    <button type="button" id="submitNewPostButton" class="tab" onclick="toggleVisibility(this.id)">Submit a New Post</button>
+    <button type="button" id="newPostButton" class="tab" onclick="toggleVisibility(this.id)">New Post</button>
+    <button type="button" id="viewPostsButton" class="tab" onclick="toggleVisibility(this.id)">View Last Post</button>
   </div>
   
   <form onsubmit="return false" class="basic-grey">
-
     <div id="submitNewPost">
       <h1>New Post
-      <span>Please fill all the texts in the fields.</span>
+        <span>Please fill the texts in the fields.</span>
       </h1>
 
       <label>
@@ -24,25 +23,21 @@
         <input type="text" name="link" id="inputLink" placeholder="Add a URL" size="35">
       </label>
 
-
       <label>
-        <span>Author:</span>
+        <span>Author: </span>
         <select id="inputAuthor" onchange="authorDetails(this.value)">
-          <option value="default"></option>
+          <option value="default" disabled selected>--What's your name?--</option>
           <option value="Tali">Tali</option>
           <option value="Yoni">Yoni</option>
         </select>
+        <div id="age"></div>
+        <div id="badassness"></div>
       </label>
-      <div id="age"></div>
-      <div id="badassness"></div>
-
 
       <label>
         <span>Title:</span>
         <input type="text" name="title" id="inputTitle" placeholder="What do you want to talk about?" size="35">
-        <!-- <div>(Please use only letters. Text must be up to 50 characters)</div> -->
       </label>
-
 
       <label>
         <span>Content:</span>
@@ -55,35 +50,31 @@
         <div><input type="range" min="1" max="5" value="3" oninput="showSmiley(this.value)" /></div>
       </label>
 
-
       <label id="inputTags">
         <span>Tag your post:</span>
         <ul id="inputTagsList"></ul>
       </label>
 
-
       <div id="errorText"></div>
 
-
-      <br>
       <input type="submit" onClick="submitNewPost()" value="Submit">
     
     </div>
     <div class="hide" id="viewPosts">
-      <h1>View Posts
+      <h1>View Last Post
       <span>Here is your recent post.</span>
       </h1>
-      <p>Just checking</p>
-      <div id="importance"></div>
-      <div id="link"></div>
-      <div id="author"></div>
-      <div id="title"></div>
-      <div id="content"></div>
-      <ul id="tags"></ul>
-      <div id="selectedMood"></div>
+      <label>
+        <div id="link"></div><br>
+        <div id="author"></div><br>
+        <div id="title"></div><br>
+        <div id="content"></div><br>
+        <ul id="tags"></ul><br>
+        <div id="selectedMood"></div>
+        <br><br><br>
+      </label>
     </div>
   </form>
-  
 
 </body>
 </html>

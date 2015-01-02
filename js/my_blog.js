@@ -5,7 +5,7 @@ function toggleVisibility(buttonId){
 	if(buttonId == "viewPostsButton"){
 		document.getElementById('viewPosts').classList.remove('hide');
 		document.getElementById('submitNewPost').classList.add('hide');
-	} else if(buttonId == "submitNewPostButton"){
+	} else if(buttonId == "newPostButton"){
 		document.getElementById('submitNewPost').classList.remove('hide');
 		document.getElementById('viewPosts').classList.add('hide');
 	}
@@ -17,18 +17,27 @@ function authorDetails(name){
 	var author = AUTHORS[name];
 	var age = author['age'];
 	var badassness = author['badassness'];
-	document.getElementById('age').innerHTML = age;
-	document.getElementById('badassness').innerHTML = badassness;
+	document.getElementById('age').innerHTML = "Age: " + age;
+	document.getElementById('badassness').innerHTML = "Badassness: " + badassness;
+}
+
+//wrap elements of an array in list items and return concatenated HTML
+function makeHtmlListItems(array) {
+	var liHTML ="";
+	for (var i=0; i<array.length; i++){
+		liHTML += "<li>"+array[i]+"</li>"
+	}
+	return liHTML
 }
 
 
 //create checkboxes dynamically based on TAGS
 function populateTagCheckboxes(){
-	var tagsHTML = "";
+	var checkboxTags = [];
 	for (var i=0; i<TAGS.length; i++){
-		tagsHTML += "<li><label><input type=\"checkbox\" name=\"tag\" id=\"tag"+i+"\"> "+TAGS[i]+"</label></li>"
+		checkboxTags[i] = "<label><input type=\"checkbox\" name=\"tag\" id=\"tag"+i+"\"> "+TAGS[i]+"</label>"
 	}
-	document.getElementById("inputTagsList").innerHTML = tagsHTML
+	document.getElementById("inputTagsList").innerHTML = makeHtmlListItems(checkboxTags);
 }
 
 
@@ -47,12 +56,8 @@ function getCheckedTags(){
 
 //create a string from the checked tags in order to later display it nicely
 function formatTags(){
-    var tagsHTML ="";
     var checkedTags = getCheckedTags();
-    for (var i=0; i<checkedTags.length; i++){
-    	tagsHTML += "<li>"+checkedTags[i]+"</li>";
-    }
-    return tagsHTML;
+    return makeHtmlListItems(checkedTags);
 }
 
 
@@ -77,7 +82,7 @@ function validateNewPost(){
 		errorText += "Please select an author.<br>";
 	}
 	//validate title: title can contain only letters and be up to 50 characters max.
-	var titleRegex = /^[a-zA-Z]{1,50}$/;
+	var titleRegex = /^[a-zA-Z ]{1,50}$/;
 	var title = document.getElementById("inputTitle").value;
 	if(!titleRegex.test(title)){
 		errorText += "Your title should contain only letters and be up to 50 characters.<br>";
@@ -103,11 +108,11 @@ function submitNewPost(){
 		document.getElementById("errorText").innerHTML = errorText;
 	}
 	else {
-		document.getElementById("link").innerHTML = document.getElementById("inputLink").value;
-		document.getElementById("author").innerHTML = document.getElementById("inputAuthor").value;
-	    document.getElementById("title").innerHTML = document.getElementById("inputTitle").value;
-	    document.getElementById("content").innerHTML = document.getElementById("inputContent").value;
-	    document.getElementById("tags").innerHTML = formatTags();
+		document.getElementById("link").innerHTML = "<u>External link</u>: " + document.getElementById("inputLink").value;
+		document.getElementById("author").innerHTML = "<u>Author</u>: " + document.getElementById("inputAuthor").value;
+	    document.getElementById("title").innerHTML = "<u>Title</u>: " + document.getElementById("inputTitle").value;
+	    document.getElementById("content").innerHTML = "<u>Content</u>: " + document.getElementById("inputContent").value;
+	    document.getElementById("tags").innerHTML = "<u>Tags</u>: " + formatTags();
 	    document.getElementById("selectedMood").className = document.getElementById("mood").className;
 	    toggleVisibility("viewPostsButton");
 	}
