@@ -7,9 +7,10 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body onload="populateTagCheckboxes()">
-
-  <button type="button" id="viewPostsButton" onclick="toggleVisibility(this.id)">View Old Posts</button>
-  <button type="button" id="submitNewPostButton" onclick="toggleVisibility(this.id)">Submit a New Post</button>
+  <div id="tabs">
+    <button type="button" id="viewPostsButton" class="tab" onclick="toggleVisibility(this.id)">View Old Posts</button>
+    <button type="button" id="submitNewPostButton" class="tab" onclick="toggleVisibility(this.id)">Submit a New Post</button>
+  </div>
   
   <form onsubmit="return false" class="basic-grey">
 
