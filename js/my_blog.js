@@ -118,8 +118,8 @@ function clearForm() {
     document.getElementById("inputLink").value = "";
     document.getElementById("inputAuthor").selectedIndex = 0;
 	document.getElementById('age').innerHTML = "";
-	document.getElementById('badassness').innerHTML = "";
-	document.getElementById('Line placeholder').innerHTML = "";
+	document.getElementById('swordsmanship').innerHTML = "";
+	document.getElementById('charisma').innerHTML = "";
     document.getElementById("inputTitle").value = "";
     document.getElementById("inputContent").value = "";
     document.getElementById("mood").className = "smiley3";
