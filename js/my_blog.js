@@ -16,12 +16,12 @@ function toggleVisibility(buttonId){
 function authorDetails(name){
 	var author = AUTHORS[name];
 	var age = author['age'];
-	var badassness = author['badassness'];
-	var placeholder = author['placeholder'];
-	document.getElementById('age').innerHTML = "Age: " + age;
-	document.getElementById('badassness').innerHTML = "badassness: " + badassness;
-	document.getElementById('Line placeholder').innerHTML = "Line placeholder: " + placeholder;
-	}
+	var swordsmanship = author['swordsmanship'];
+	var charisma = author['charisma'];
+	document.getElementById('age').innerHTML = "age: " + age;
+	document.getElementById('swordsmanship').innerHTML = "swordsmanship: " + swordsmanship;
+	document.getElementById('charisma').innerHTML = "charisma: " + charisma;
+}
 
 //wrap elements of an array in list items and return concatenated HTML
 function makeHtmlListItems(array) {

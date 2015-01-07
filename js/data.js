@@ -1,15 +1,21 @@
 //list of tags to be used to categorise posts
 TAGS = ["Cats","Bats","Wizards","Witches","Evil Pumpkins"];
 
+//All Musketeers' related information is completely made up!
 AUTHORS = {
-	"Tali": {
-		"age":30,
-		"badassness":1000,
-		"placeholder":500,
+	"Athos": {
+		"age":25,
+		"swordsmanship":1000,
+		"charisma":500,
 		},
-	 "Yoni": {
-	 	"age":30,
-	 	"badassness": 15,
-	 	"placeholder":900,
+	 "Porthos": {
+	 	"age":21,
+	 	"swordsmanship": 15,
+	 	"charisma":900,
+	 },
+	 "Aramis": {
+	 	"age":27,
+	 	"swordsmanship": 22,
+	 	"charisma":4444,
 	 }
 }
